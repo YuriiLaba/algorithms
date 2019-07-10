@@ -1,5 +1,3 @@
-#!/bin/python3
-
 import math
 import os
 import random
@@ -15,12 +13,9 @@ def maximumToys(prices, k):
         if (k - i) > 0:
             k -= i
             maxToys += 1
-    
+
     return maxToys
-    
 
-
-    
 
 if __name__ == '__main__':
 
@@ -34,4 +29,3 @@ if __name__ == '__main__':
 
     result = maximumToys(prices, k)
     print(result)
-
