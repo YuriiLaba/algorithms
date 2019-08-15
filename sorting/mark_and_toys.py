@@ -50,9 +50,9 @@ if __name__ == '__main__':
 
     nk = input().split()
 
-    n = int(nk[0]) # number of elements in the array
+    n = int(nk[0])
 
-    k = int(nk[1]) 
+    k = int(nk[1])
 
     prices = list(map(int, input().rstrip().split()))
 
