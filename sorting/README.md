@@ -2,10 +2,19 @@
 This task is a simple bubble sort realization to sort an array.
 
 ## Input Format:  
-The first line contains an integer, n, the size of the array a.  
-The second line contains n space-separated integers a[i].  
+The first line contains an integer, _n_, the size of the array _a_.  
+The second line contains n space-separated integers _a[i]_.  
 
 ## Output Format:  
 Number of swaps to sort the array.  
 First element of the sorted array.  
-Last element of the sorted array.
+Last element of the sorted array.  
+
+# Mark and Toys
+In this task I realized search of the maximum number of elements in the array whose sum is less than set number _k_ using merge sort.  
+
+## Input Format:
+The first line contains two integers, _n_ - number of elements in the array, and _k_.  
+
+## Output Format:
+An integer that denotes the maximum number of elements whose sum is less than _k_.  
