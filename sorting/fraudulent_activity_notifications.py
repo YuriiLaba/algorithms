@@ -1,15 +1,14 @@
 import math
 import os
-import random
 import re
 import sys
 import time
-import bisect
 
 
 def _binarySearch(arr, el, left_idx, right_idx):
-    mid = left_idx + int((right_idx - left_idx) // 2) - ((right_idx - left_idx) % 2 > 0)
-
+    print(left_idx, right_idx)
+    mid = left_idx + int((right_idx - left_idx) // 2) + ((right_idx - left_idx) % 2 > 0)
+    print(mid)
     if left_idx == right_idx:
         return
     if arr[mid] == el:
@@ -20,7 +19,7 @@ def _binarySearch(arr, el, left_idx, right_idx):
         return _binarySearch(arr, el, left_idx, mid)
 
 def _binaryInsert(arr, el, left_idx, right_idx):
-    mid = left_idx + int((right_idx - left_idx) / 2) - ((right_idx - left_idx) % 2 > 0)
+    mid = left_idx + int((right_idx - left_idx) // 2) - ((right_idx - left_idx) % 2 > 0)
 
 
     if left_idx == right_idx:
@@ -61,7 +60,6 @@ def activityNotifications(expenditure, d):
             a = _binarySearch(expenditure_portion, expenditure[start_day], 0, len(expenditure_portion))
             del expenditure_portion[a]
 
-            # bisect.insort(expenditure_portion, expenditure[last_day])
             if expenditure[last_day] >= expenditure_portion[-1]:
                 expenditure_portion.insert(-1, expenditure[last_day])
             elif expenditure[last_day] <= expenditure_portion[0]:
@@ -70,7 +68,6 @@ def activityNotifications(expenditure, d):
                 idx = _binaryInsert(expenditure_portion, expenditure[last_day], 0, len(expenditure_portion))
                 expenditure_portion.insert(idx, expenditure[last_day])
             
-            # expenditure_portion.append(expenditure[last_day])
             start_day += 1
             last_day += 1
 
@@ -78,24 +75,15 @@ def activityNotifications(expenditure, d):
 
 if __name__ == '__main__':
 
-    d = 3
+    nd = input().split()
 
-    with open("/home/laba/Project/hacker-rank/sorting/40001.txt") as f:
-        lines = f.read().split(' ')
-    # expenditure = list(map(int, lines))
-    expenditure = [2, 3, 4, 2, 3, 6, 8, 4, 5]
-    # if(7 in sorted(expenditure)):
-        # print("DDD")
-    # d = _binarySearch(sorted(expenditure), 7, 0, len(expenditure))
-    # print(d)
-    # start = time.time()
+    n = int(nd[0])
+
+    d = int(nd[1])
+
+    expenditure = list(map(int, input().rstrip().split()))
+
     result = activityNotifications(expenditure, d)
-    # end = time.time()
-
-    # print(end - start)
     print(result)
-    # lst = [ 2, 3, 6, 7, 8, 9, 10]
-    # _binarySearch(lst, 10, 0, len(lst))
-    # print(lst[a])
 
 
