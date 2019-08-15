@@ -18,3 +18,7 @@ The first line contains two integers, _n_ - number of elements in the array, and
 
 ## Output Format:
 An integer that denotes the maximum number of elements whose sum is less than _k_.  
+
+## Fraudulent Activity Notifications
+This task is the relization of binary search algorithm.  
+
