@@ -22,3 +22,9 @@ An integer that denotes the maximum number of elements whose sum is less than _k
 # Fraudulent Activity Notifications
 This task is the relization of binary search algorithm.  
 
+# Sorting: Comparator
+
+In this task I realized simple custom comparator to sort elements in the list.  
+
+
+
