@@ -4,36 +4,27 @@ import random
 import re
 import sys
 
-
 def _mergeSort(arr):
-    if len(arr) != 1: 
-        mid_idx = len(arr)//2 
-        left_part = arr[:mid_idx]   
-        right_part = arr[mid_idx:]
-        _mergeSort(left_part) 
-        _mergeSort(right_part)
-        
-        i = j = k = 0
-
-        while i < len(left_part) and j < len(right_part):
-            if left_part[i] < right_part[j]: 
-                arr[k] = left_part[i] 
-                i+=1
-            else: 
-                arr[k] = right_part[j] 
-                j+=1
-            k+=1
-
-        while i < len(left_part): 
-            arr[k] = left_part[i] 
-            i+=1
-            k+=1
-          
-        while j < len(right_part): 
-            arr[k] = right_part[j] 
-            j+=1
-            k+=1
+    if len(arr) == 1:
         return arr
+    mid_idx = len(arr)//2
+
+    left = _mergeSort(arr[:mid_idx])   
+    right = _mergeSort(arr[mid_idx:])
+    
+    result = []
+    l = 0
+    r = 0
+    while l < len(left) and r < len(right):
+        if left[l] > right[r]:
+            result.append(right[r])
+            r += 1
+        else:
+            result.append(left[l])
+            l += 1
+    result += left[l:]
+    result += right[r:]
+    return result
 
 def maximumToys(prices, k):
     maxToys = 0
@@ -47,6 +38,7 @@ def maximumToys(prices, k):
 
 
 if __name__ == '__main__':
+
 
     nk = input().split()
 
