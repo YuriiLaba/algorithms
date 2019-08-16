@@ -1,16 +1,21 @@
 def _mergeSort(arr):
     if len(arr) == 1:
-        return arr, 0
+        return 0
     mid_idx = len(arr)//2
 
-    left, l_inversions = _mergeSort(arr[:mid_idx])   
-    right, r_inversions = _mergeSort(arr[mid_idx:])
+    left = arr[:mid_idx]   
+    right = arr[mid_idx:]
+
+    l_inversions = _mergeSort(left)
+    r_inversions = _mergeSort(right)
+
+    t_inversions = l_inversions + r_inversions
     
     l = 0
     r = 0
     counter = 0
 
-    t_inversions = l_inversions + r_inversions
+    
 
     while l < len(left) and r < len(right):
         if left[l] > right[r]:
@@ -32,10 +37,11 @@ def _mergeSort(arr):
         arr[counter] = right[r]
         counter += 1
         r += 1
-    return arr, t_inversions
+
+    return t_inversions
 
 def countInversions(arr):
-    arr, n_swaps = _mergeSort(arr)
+    n_swaps = _mergeSort(arr)
     print(n_swaps)
 
 arr = [2, 1, 3, 1, 2]
