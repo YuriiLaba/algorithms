@@ -6,9 +6,7 @@ import time
 
 
 def _binarySearch(arr, el, left_idx, right_idx):
-    print(left_idx, right_idx)
-    mid = left_idx + int((right_idx - left_idx) // 2) + ((right_idx - left_idx) % 2 > 0)
-    print(mid)
+    mid = left_idx + int((right_idx - left_idx) // 2) - ((right_idx - left_idx) % 2 > 0)
     if left_idx == right_idx:
         return
     if arr[mid] == el:
@@ -19,7 +17,7 @@ def _binarySearch(arr, el, left_idx, right_idx):
         return _binarySearch(arr, el, left_idx, mid)
 
 def _binaryInsert(arr, el, left_idx, right_idx):
-    mid = left_idx + int((right_idx - left_idx) // 2) - ((right_idx - left_idx) % 2 > 0)
+    mid = left_idx + int((right_idx - left_idx) / 2) - ((right_idx - left_idx) % 2 > 0)
 
 
     if left_idx == right_idx:
@@ -61,7 +59,7 @@ def activityNotifications(expenditure, d):
             del expenditure_portion[a]
 
             if expenditure[last_day] >= expenditure_portion[-1]:
-                expenditure_portion.insert(-1, expenditure[last_day])
+                expenditure_portion.insert(len(expenditure_portion), expenditure[last_day])
             elif expenditure[last_day] <= expenditure_portion[0]:
                 expenditure_portion.insert(0, expenditure[last_day])
             else:
@@ -85,5 +83,3 @@ if __name__ == '__main__':
 
     result = activityNotifications(expenditure, d)
     print(result)
-
-
