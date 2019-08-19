@@ -14,7 +14,8 @@ Last element of the sorted array.
 In this task I realized search of the maximum number of elements in the array whose sum is less than set number _k_ using merge sort.  
 
 ## Input Format:
-The first line contains two integers, _n_ - number of elements in the array, and _k_.  
+The first line contains two integers, _n_ - number of elements in the array _a_, and _k_.  
+The second line contains n space-separated integers _a[i]_.
 
 ## Output Format:
 An integer that denotes the maximum number of elements whose sum is less than _k_.  
